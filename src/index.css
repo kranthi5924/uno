@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-blue: #00f3ff;
+  --color-neon-pink: #ff00ff;
+  --color-neon-purple: #bc13fe;
+  --color-neon-green: #39ff14;
+  --color-cyber-bg: #050505;
+  --color-cyber-card: #1a1a1a;
+}
+
+@layer base {
+  body {
+    @apply bg-cyber-bg text-white font-sans overflow-hidden;
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(20, 20, 30, 1) 0%, rgba(5, 5, 5, 1) 100%),
+      linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+      linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 100%, 100% 2px, 3px 100%;
+  }
+}
+
+.neon-border {
+  box-shadow: 0 0 5px theme('colors.neon-blue'), 0 0 10px theme('colors.neon-blue');
+}
+
+.neon-text {
+  text-shadow: 0 0 5px theme('colors.neon-blue'), 0 0 10px theme('colors.neon-blue');
+}
+
+.card-glow-red { box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); }
+.card-glow-blue { box-shadow: 0 0 15px rgba(0, 243, 255, 0.5); }
+.card-glow-green { box-shadow: 0 0 15px rgba(57, 255, 20, 0.5); }
+.card-glow-yellow { box-shadow: 0 0 15px rgba(255, 255, 0, 0.5); }
+.card-glow-wild { box-shadow: 0 0 20px rgba(188, 19, 254, 0.6); }
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scanline {
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(0deg, rgba(0, 243, 255, 0) 0%, rgba(0, 243, 255, 0.1) 50%, rgba(0, 243, 255, 0) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
